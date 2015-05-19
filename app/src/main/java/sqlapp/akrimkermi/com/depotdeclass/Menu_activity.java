@@ -1,17 +1,41 @@
 package sqlapp.akrimkermi.com.depotdeclass;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
 
 
 public class Menu_activity extends ActionBarActivity {
+
+
+    private TextView user;
+    private Button Notifier;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_activity);
+        String currentUser = getIntent().getStringExtra("actualUser");
+        user = (TextView)findViewById(R.id.name_label);
+        user.setText(currentUser);
+
+
+
+        /*Test de notification*/
+        this.Notifier = (Button) findViewById(R.id.Button_notify);
+        this.Notifier.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(),Notification_Activity.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
 

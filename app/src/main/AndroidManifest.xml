@@ -35,6 +35,22 @@
         <activity
             android:name=".Menu_activity"
             android:label="@string/title_activity_menu_activity" >
+            <intent-filter>
+                <action android:name="sqlapp.akrimkermi.com.depotdeclass.Menu_activity" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Notification_Activity"
+            android:label="@string/title_activity_notification_"
+            android:parentActivityName=".Menu_activity" >
+
+            <intent-filter>
+                <action android:name="sqlapp.akrimkermi.com.depotdeclass.Notification_Activity" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
         </activity>
     </application>
 
