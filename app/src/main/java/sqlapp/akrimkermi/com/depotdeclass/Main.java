@@ -26,35 +26,41 @@ public class Main extends Activity {
         username = (EditText)findViewById(R.id.editText1);
         password = (EditText)findViewById(R.id.editText2);
         attempts = (TextView)findViewById(R.id.textView5);
-        attempts.setText(Integer.toString(counter));
+        attempts.setTextSize(13);
+        attempts.setText("attempts left : "+Integer.toString(counter));
         login = (Button)findViewById(R.id.button1);
     }
 
+
     public void login(View view){
-        if(username.getText().toString().equals("admin") &&
-                password.getText().toString().equals("admin")){
-            Toast.makeText(getApplicationContext(), "Redirecting...",
-                    Toast.LENGTH_SHORT).show();
            login.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+
+                    /*checking */
+                    if(username.getText().toString().equals("admin") &&
+                            password.getText().toString().equals("admin")){
+                        Toast.makeText(getApplicationContext(), "Redirecting...",
+                                Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(getApplicationContext(),Menu_activity.class);
                     intent.putExtra("actualUser",username.getText().toString());
                     startActivity(intent);
+                    } else{
+                        Toast.makeText(getApplicationContext(), "Erreur D'identification",
+                                Toast.LENGTH_SHORT).show();
+                        attempts.setTextColor(Color.RED);
+                        counter--;
+                        attempts.setText("attempts left : "+Integer.toString(counter));
+
+                        if(counter==0){
+                            login.setEnabled(false);
+                        }
+
+                    }
                 }
             });
-        }
-        else{
-            Toast.makeText(getApplicationContext(), "Wrong Credentials",
-                    Toast.LENGTH_SHORT).show();
-            attempts.setBackgroundColor(Color.RED);
-            counter--;
-            attempts.setText(Integer.toString(counter));
-            if(counter==0){
-                login.setEnabled(false);
-            }
 
-        }
+
 
     }
 
@@ -65,7 +71,7 @@ public class Main extends Activity {
 
 
 }
-/*
+/* // Redirection :
   login.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

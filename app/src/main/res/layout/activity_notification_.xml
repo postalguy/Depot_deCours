@@ -39,7 +39,7 @@
 
         <EditText
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="35dp"
             android:id="@+id/Sujet_Text" />
 
         <TextView
@@ -49,10 +49,12 @@
             android:text="Contenu :"
             android:id="@+id/textView" />
 
-        <EditText
-            android:layout_width="fill_parent"
-            android:layout_height="250dp"
-            android:id="@+id/Contenu_field" />
+            <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="120dp"
+                android:inputType="textMultiLine"
+                android:ems="10"
+                android:id="@+id/Contenu_field" />
 
         </LinearLayout>
         <LinearLayout

@@ -31,7 +31,7 @@
     <EditText
         android:id="@+id/editText1"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="35dp"
         android:layout_alignBottom="@+id/textView2"
         android:layout_marginLeft="32dp"
         android:layout_toRightOf="@+id/textView2"
@@ -53,7 +53,7 @@
     <EditText
         android:id="@+id/editText2"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="35dp"
         android:layout_alignBottom="@+id/textView3"
         android:layout_alignLeft="@+id/editText1"
         android:ems="10"
@@ -69,23 +69,15 @@
         android:onClick="login"
         android:text="@string/Login" />
 
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView3"
-        android:layout_below="@+id/textView3"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="48dp"
-        android:text="@string/attempts"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+
 
     <TextView
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/textView1"
-        android:layout_alignTop="@+id/textView4"
-        android:text="TextView" />
+        android:text="TextView"
+        android:layout_below="@+id/button1"
+        android:layout_alignRight="@+id/button1"
+        android:layout_alignEnd="@+id/button1" />
 
 </RelativeLayout>
