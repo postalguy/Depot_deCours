@@ -18,7 +18,7 @@ import sqlapp.akrimkermi.com.Metier.User;
 /**
  * Created by elkarmi on 23/05/2015.
  */
- public class DPFProfesseur {
+public class DPFProfesseur {
     private Context con;
     private DPFUser dpfu;
     private String link = "http://localhost/GestionDeCours/Ressources/Professeurs.json";// lien temporaire

@@ -1,0 +1,7 @@
+{"nombre":4,
+"etudiants" :[
+{"etudiant_id":1,"groupe_id":1,"user_id":1},
+{"etudiant_id":2,"groupe_id":1,"user_id":2},
+{"etudiant_id":3,"groupe_id":2,"user_id":4},
+]
+}
