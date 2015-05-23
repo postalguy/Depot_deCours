@@ -3,7 +3,11 @@ package sqlapp.akrimkermi.com.Metier;
 import java.util.Date;
 
 /**
+<<<<<<< Updated upstream
  * Created by akrim ykhrydfsdf on 22/05/2015.
+=======
+ * Created by akrim on 22/05/2015.
+>>>>>>> Stashed changes
  */
 public class Document {
     private Integer id_document;
@@ -14,7 +18,10 @@ public class Document {
     private String type;
     private String nature;
     private Professeur depose_par;
+<<<<<<< Updated upstream
     private String nu; // to remove
+=======
+>>>>>>> Stashed changes
 
     public Document() {
     }
