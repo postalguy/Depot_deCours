@@ -33,9 +33,9 @@ public class DPFUser {
     }
 
 
-    /*public DPFUser(String link) {
+    public DPFUser(String link) {
         this.link = link;
-    }*/
+    }
 
     public ArrayList<User> Parsing(String in) {
         try {
