@@ -87,14 +87,13 @@ import sqlapp.akrimkermi.com.Metier.User;
         return s.hasNext() ? s.next() : "";
     }
 
-    public Professeur getProfesseurById(Integer id){
-        ArrayList<Professeur> prof =this.getAllProfesseurs();
-        for(int i=0;i<prof.size();i++){
-            if(prof.get(i).getId_professeur()==id)
+    public Professeur getProfesseurById(Integer id) {
+        ArrayList<Professeur> prof = this.getAllProfesseurs();
+        for (int i = 0; i < prof.size(); i++) {
+            if (prof.get(i).getId_professeur() == id)
                 return prof.get(i);
         }
         return null;
     }
-
 }
 

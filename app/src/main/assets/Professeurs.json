@@ -1,6 +1,6 @@
 {"nombre":2,
   "professeurs" :[
-    {"professeur_id":"1","user_id":1},
-    {"professeur_id":"2","user_id":2}
+    {"professeur_id":"1","user_id":3},
+    {"professeur_id":"2","user_id":5}
   ]
 }
