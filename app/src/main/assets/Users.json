@@ -1,6 +1,6 @@
 {"nombre":2,
-"users" :{
+"users" :[
 {"user_id":1,"nom":"akrim","prenom":"ismail","email":"akrim@gmail.com","password":"admin"},
 {"user_id":2,"nom":"karmi","prenom":"med","email":"karmi@gmail.com","password":"admin"}
-}
+]
 }
