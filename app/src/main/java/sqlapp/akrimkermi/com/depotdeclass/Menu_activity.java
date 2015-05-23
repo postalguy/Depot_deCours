@@ -15,6 +15,7 @@ public class Menu_activity extends ActionBarActivity {
 
     private TextView user;
     private Button Notifier;
+    private Button Modules;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,7 +25,15 @@ public class Menu_activity extends ActionBarActivity {
         user = (TextView)findViewById(R.id.name_label);
         user.setText(currentUser);
 
-
+        /* test de Modules */
+        this.Modules = (Button) findViewById(R.id.Button_cours);
+        this.Modules.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(),Modules_Activity.class);
+                startActivity(intent);
+            }
+        });
 
         /*Test de notification*/
         this.Notifier = (Button) findViewById(R.id.Button_notify);

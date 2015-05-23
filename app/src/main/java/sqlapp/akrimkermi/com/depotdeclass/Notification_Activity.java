@@ -10,6 +10,8 @@ import android.widget.Button;
 import android.widget.EditText;
 
 
+
+
 public class Notification_Activity extends ActionBarActivity {
 
     Button to_Prof;

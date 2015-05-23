@@ -10,5 +10,7 @@
     <string name="Login">Connecter </string>
     <string name="attempts">Attempts Left:</string>
     <string name="title_activity_notification_">Notification_Activity</string>
+    <string name="title_activity_modules_">Modules_Activity</string>
+    <string name="title_activity_cours_">Cours_Activity</string>
 
 </resources>

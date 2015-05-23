@@ -45,9 +45,26 @@
             android:name=".Notification_Activity"
             android:label="@string/title_activity_notification_"
             android:parentActivityName=".Menu_activity" >
-
             <intent-filter>
                 <action android:name="sqlapp.akrimkermi.com.depotdeclass.Notification_Activity" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Modules_Activity"
+            android:label="@string/title_activity_modules_" >
+            <intent-filter>
+                <action android:name="sqlapp.akrimkermi.com.depotdeclass.Modules_Activity" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Cours_Activity"
+            android:label="@string/title_activity_cours_" >
+            <intent-filter>
+                <action android:name="sqlapp.akrimkermi.com.depotdeclass.Cours_Activity" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
