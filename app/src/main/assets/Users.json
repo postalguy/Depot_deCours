@@ -1,6 +1,9 @@
-{"nombre":2,
+{"nombre":5,
   "users" :[
     {"user_id":1,"nom":"akrim","prenom":"ismail","email":"akrim@gmail.com","password":"admin"},
-    {"user_id":2,"nom":"karmi","prenom":"med","email":"karmi@gmail.com","password":"admin"}
+    {"user_id":2,"nom":"karmi","prenom":"med","email":"karmi@gmail.com","password":"admin"},
+     {"user_id":3,"nom":"Hafidi","prenom":"imad","email":"Hafidi.imad@gmail.com","password":"admin"},
+      {"user_id":4,"nom":"mazzi","prenom":"meriem","email":"mazzi@gmail.com","password":"admin"},
+       {"user_id":5,"nom":"Amnai","prenom":"Mohammed","email":"amnai@gmail.com","password":"admin"}
   ]
 }

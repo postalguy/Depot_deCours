@@ -10,8 +10,17 @@ public class Cours {
     private Integer id_cours;
     private String intitule;
     private String description;
+    private Professeur prof;
+    private Groupe groupe;
     private ArrayList<Document> documents;
 
+    public Cours(Integer id_cours, String intitule, String description, Professeur prof, Groupe groupe) {
+        this.id_cours = id_cours;
+        this.intitule = intitule;
+        this.description = description;
+        this.prof = prof;
+        this.groupe = groupe;
+    }
 
     public Cours() {
 
