@@ -4,15 +4,15 @@ import android.content.Context;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
-import java.io.StringWriter;
-import java.net.HttpURLConnection;
+//import java.io.StringWriter;
+//import java.net.HttpURLConnection;
 import java.util.ArrayList;
-import java.io.IOException;
+//import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
-import sqlapp.akrimkermi.com.Metier.Etudiant;
+//import java.io.InputStreamReader;
+//import sqlapp.akrimkermi.com.Metier.Etudiant;
 import sqlapp.akrimkermi.com.Metier.User;
-import java.net.URL;
+//import java.net.URL;
 
 
 /**
@@ -75,7 +75,7 @@ public class DPFUser {
                     // Starts the query
                    // conn.connect();
                    // InputStream stream = conn.getInputStream();
-                     InputStream stream = con.getAssets().open("Users.json");
+                     InputStream stream = con.getAssets().open("src/androidTest/Users.json");
                     String data = convertStreamToString(stream);
                     ArrayList<User> AllUsers = Parsing(data);
                     stream.close();
@@ -86,7 +86,6 @@ public class DPFUser {
                 }
         return null;
     }
-
 
     static String convertStreamToString(java.io.InputStream is) {
         java.util.Scanner s = new java.util.Scanner(is).useDelimiter("\\A");

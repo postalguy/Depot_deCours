@@ -9,8 +9,8 @@ public class Professeur extends User {
     public Professeur() {
     }
 
-    public Professeur(String name,String email,String password,Integer id_professeur) {
-        super(name,email,password);
+    public Professeur(Integer user_id,String name,String email,String password,Integer id_professeur) {
+        super(user_id,name,email,password);
         this.id_professeur = id_professeur;
     }
 

@@ -4,21 +4,19 @@ package sqlapp.akrimkermi.com.Metier;
  * Created by akrim on 22/05/2015.
  */
 public class User {
-    private Integer user_id;
-
-
 
     private String name;
     private String email;
     private String password;
+    private Integer user_id;
 
 
 
     public User(){
         super();
     }
-    public User(Integer id,String name, String email, String password){
-                this.user_id=id;
+    public User(Integer user_id,String name, String email, String password){
+                this.user_id=user_id;
                 this.name = name;
                 this.email=email;
                 this.password = password;
@@ -31,6 +29,7 @@ public class User {
     public void setUser_id(Integer user_id) {
         this.user_id = user_id;
     }
+
     public String getName() {
         return name;
     }

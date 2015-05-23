@@ -50,6 +50,7 @@ public class Main extends Activity {
         attempts.setTextSize(13);
         attempts.setText("attempts left : "+Integer.toString(counter));
         login = (Button)findViewById(R.id.button1);
+
     }
 
     /*partie de Test de mot de pass à déplacer en DBO : */
