@@ -1,11 +1,15 @@
 package sqlapp.akrimkermi.com.DataParsingAndFetching;
 
+import android.content.Context;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
-
+import java.io.StringWriter;
 import java.net.HttpURLConnection;
 import java.util.ArrayList;
-
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import sqlapp.akrimkermi.com.Metier.Etudiant;
 import sqlapp.akrimkermi.com.Metier.User;
 import java.net.URL;
@@ -16,88 +20,77 @@ import java.net.URL;
  */
 public class DPFUser {
 
- //   private ArrayList<User> AllUsers;
+    private Context con;
     private String link = "http://localhost/GestionDeCours/Ressources/Users.json";// lien temporaire
-
+    public volatile boolean parsingComplete = true;
 
     public DPFUser() {
     }
 
-    public DPFUser(String link) {
-        this.link = link;
+    // Test local
+    public DPFUser(Context co) {
+        this.con = co;
     }
 
-    public ArrayList<User> getAllUsers() {
+
+    /*public DPFUser(String link) {
+        this.link = link;
+    }*/
+
+    public ArrayList<User> Parsing(String in) {
         try {
-
-
-            Integer NombreUsers =0;
-            Integer user_id;
-            String nom;
-            String prenom;
-            String email;
-            String password;
-
-
-
             JSONObject reader = new JSONObject(in);
-            NombreUsers = Integer.valueOf(reader.getInt("nombre"));
+            Integer NombreUsers = Integer.valueOf(reader.getInt("nombre"));
 
             JSONArray Users = reader.getJSONArray("users");
-
-
-
-            JSONObject sys  = reader.getJSONObject("sys");
-            country = sys.getString("country");
-            JSONObject main  = reader.getJSONObject("main");
-            temperature = main.getString("temp");
-
-            pressure = main.getString("pressure");
-            humidity = main.getString("humidity");
-
+            ArrayList<User> users = new ArrayList<User>();
+            for (int i = 0; i < NombreUsers; i++) {
+            JSONObject Jsonuser = Users.getJSONObject(i);
+           // Integer user_id =Integer.valueOf(Jsonuser.getInt("user_id")) ;
+            String username = Jsonuser.getString("nom")+Jsonuser.getString("prenom");
+            String email = Jsonuser.getString("email");
+            String password = Jsonuser.getString("password");
+            User usr = new User(username,email,password);
+            users.add(usr);
+            }
             parsingComplete = false;
-
-
-
+            return users;
         } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-
-
-
         return null;
     }
 
 
 
-    public void fetchJson(){
-        Thread th = new Thread(new Runnable(){
-            @Override
-            public void run() {
+    public ArrayList<User> getAllUsers(){
                 try {
-                    URL url = new URL(link);
-                    HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-                    conn.setReadTimeout(10000 /* milliseconds */);
-                    conn.setConnectTimeout(15000 /* milliseconds */);
-                    conn.setRequestMethod("GET");
-                    conn.setDoInput(true);
+                    //URL url = new URL(link);
+                   // HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+                   // conn.setReadTimeout(10000 /* milliseconds */);
+                   // conn.setConnectTimeout(15000 /* milliseconds */);
+                   // conn.setRequestMethod("GET");
+                   // conn.setDoInput(true);
                     // Starts the query
-                    conn.connect();
-                    InputStream stream = conn.getInputStream();
-
+                   // conn.connect();
+                   // InputStream stream = conn.getInputStream();
+                     InputStream stream = con.getAssets().open("Users.json");
                     String data = convertStreamToString(stream);
-
-                    readAndParseJSON(data);
+                    ArrayList<User> AllUsers = Parsing(data);
                     stream.close();
+                    return AllUsers;
 
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-            }
-        });
+        return null;
+    }
 
 
+    static String convertStreamToString(java.io.InputStream is) {
+        java.util.Scanner s = new java.util.Scanner(is).useDelimiter("\\A");
+        return s.hasNext() ? s.next() : "";
     }
 
 

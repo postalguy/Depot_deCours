@@ -14,6 +14,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 import sqlapp.akrimkermi.com.Metier.User;
+import sqlapp.akrimkermi.com.DataParsingAndFetching.*;
 
 
 public class Main extends Activity {
@@ -28,7 +29,7 @@ public class Main extends Activity {
     private EditText  password=null;
     private TextView attempts;
     private Button login;
-    int counter = 3;
+    int counter = 5;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -36,10 +37,13 @@ public class Main extends Activity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        User user1 = new User("Ismail Akrim","akrim@gmail.com","admin");   // Entité de test
-        User user2 = new User("Mohamed El Karmi","karmi@gmail.com","Bratan"); //Entité de test
-        Registred_users.add(user1);   //Entité de test
-        Registred_users.add(user2);   //Entité de test
+
+    //    User user1 = new User("Ismail Akrim","akrim@gmail.com","admin");   // Entité de test
+     //   User user2 = new User("Mohamed El Karmi","karmi@gmail.com","Bratan"); //Entité de test
+    //    Registred_users.add(user1);   //Entité de test
+     //   Registred_users.add(user2);   //Entité de test
+        DPFUser dpfuser = new DPFUser(getApplicationContext());
+        Registred_users = dpfuser.getAllUsers();
         username = (EditText)findViewById(R.id.editText1);
         password = (EditText)findViewById(R.id.editText2);
         attempts = (TextView)findViewById(R.id.textView5);
