@@ -18,10 +18,7 @@ public class Document {
     private String type;
     private String nature;
     private Professeur depose_par;
-<<<<<<< Updated upstream
-    private String nu; // to remove
-=======
->>>>>>> Stashed changes
+
 
     public Document() {
     }
