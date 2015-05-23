@@ -46,11 +46,11 @@ public class DPFUser {
             ArrayList<User> users = new ArrayList<User>();
             for (int i = 0; i < NombreUsers; i++) {
             JSONObject Jsonuser = Users.getJSONObject(i);
-           // Integer user_id =Integer.valueOf(Jsonuser.getInt("user_id")) ;
+            Integer user_id =Integer.valueOf(Jsonuser.getInt("user_id")) ;
             String username = Jsonuser.getString("nom")+Jsonuser.getString("prenom");
             String email = Jsonuser.getString("email");
             String password = Jsonuser.getString("password");
-            User usr = new User(username,email,password);
+            User usr = new User(user_id,username,email,password);
             users.add(usr);
             }
             parsingComplete = false;
@@ -93,5 +93,15 @@ public class DPFUser {
         return s.hasNext() ? s.next() : "";
     }
 
+
+    public User getUserById(Integer id){
+        ArrayList<User> all = this.getAllUsers();
+        for (int i = 0; i <all.size() ; i++) {
+            if(all.get(i).getUser_id()==id){
+                    return all.get(i);
+            }
+        }
+        return null;
+    }
 
 }

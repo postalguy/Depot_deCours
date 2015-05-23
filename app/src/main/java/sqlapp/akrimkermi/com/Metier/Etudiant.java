@@ -11,12 +11,16 @@ public class Etudiant extends User {
     public Etudiant(){
         super();
     }
-
-    public Etudiant(String name,String email,String password,Integer ide,Integer idg){
-        super(name,email,password);
+    public Etudiant(Integer ide,Integer idg){
+        super();
+        id_etudiant=ide; id_groupe=idg;
+    }
+    public Etudiant(Integer uid,String name,String email,String password,Integer ide,Integer idg){
+        super(uid,name,email,password);
         this.id_etudiant=ide;
         this.id_groupe=idg;
     }
+
 
     public Integer getId_etudiant() {
         return id_etudiant;

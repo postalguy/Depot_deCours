@@ -5,6 +5,7 @@ import android.content.Context;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.io.InputStream;
 import java.util.ArrayList;
 
 import sqlapp.akrimkermi.com.Metier.User;
@@ -15,6 +16,7 @@ import sqlapp.akrimkermi.com.Metier.Groupe;
  */
 public class DPFEtudiant {
     private Context con;
+    private DPFUser dpfu;
     private String link = "http://localhost/GestionDeCours/Ressources/Etudiant.json";// lien temporaire
     public volatile boolean parsingComplete = true;
 
@@ -33,18 +35,18 @@ public class DPFEtudiant {
     public ArrayList<Etudiant> Parsing(String in) {
         try {
             JSONObject reader = new JSONObject(in);
-            Integer NombreUsers = Integer.valueOf(reader.getInt("nombre"));
+            Integer NombreEtudiants = Integer.valueOf(reader.getInt("nombre"));
 
             JSONArray Users = reader.getJSONArray("users");
-            ArrayList<User> users = new ArrayList<User>();
-            for (int i = 0; i < NombreUsers; i++) {
+            ArrayList<Etudiant> users = new ArrayList<Etudiant>();
+            for (int i = 0; i < NombreEtudiants; i++) {
                 JSONObject Jsonuser = Users.getJSONObject(i);
-                // Integer user_id =Integer.valueOf(Jsonuser.getInt("user_id")) ;
-                String username = Jsonuser.getString("nom")+Jsonuser.getString("prenom");
-                String email = Jsonuser.getString("email");
-                String password = Jsonuser.getString("password");
-                User usr = new User(username,email,password);
-                users.add(usr);
+                 Integer id_etudiant =Integer.valueOf(Jsonuser.getInt("id_etudiant")) ;
+                Integer id_groupe =Integer.valueOf(Jsonuser.getInt("id_groupe")) ;
+                Integer id_user = Integer.valueOf(Jsonuser.getInt("id_user"));
+                User useret = dpfu.getUserById(id_user);
+                Etudiant et = new Etudiant(id_user,useret.getName(),useret.getEmail(),useret.getPassword(),id_etudiant,id_groupe);
+                users.add(et);
             }
             parsingComplete = false;
             return users;
@@ -54,5 +56,37 @@ public class DPFEtudiant {
         }
         return null;
     }
+    public ArrayList<Etudiant> getAllEtudiants(){
+        try {
+            //URL url = new URL(link);
+            // HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            // conn.setReadTimeout(10000 /* milliseconds */);
+            // conn.setConnectTimeout(15000 /* milliseconds */);
+            // conn.setRequestMethod("GET");
+            // conn.setDoInput(true);
+            // Starts the query
+            // conn.connect();
+            // InputStream stream = conn.getInputStream();
+            InputStream stream = con.getAssets().open("Etudiants.json");
+            String data = convertStreamToString(stream);
+            ArrayList<Etudiant> AllEtudiants = Parsing(data);
+            stream.close();
+            return AllEtudiants;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+
+    static String convertStreamToString(java.io.InputStream is) {
+        java.util.Scanner s = new java.util.Scanner(is).useDelimiter("\\A");
+        return s.hasNext() ? s.next() : "";
+    }
+
+
+
+
 
 }
