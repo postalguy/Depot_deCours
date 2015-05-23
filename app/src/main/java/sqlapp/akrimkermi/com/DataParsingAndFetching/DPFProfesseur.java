@@ -21,7 +21,7 @@ import sqlapp.akrimkermi.com.Metier.User;
  public class DPFProfesseur {
     private Context con;
     private DPFUser dpfu;
-    private String link = "http://localhost/GestionDeCours/Ressources/Users.json";// lien temporaire
+    private String link = "http://localhost/GestionDeCours/Ressources/Professeurs.json";// lien temporaire
     public volatile boolean parsingComplete = true;
 
     public  DPFProfesseur(){
@@ -40,7 +40,7 @@ import sqlapp.akrimkermi.com.Metier.User;
             JSONObject reader = new JSONObject(in);
             Integer NombreProfesseurs = Integer.valueOf(reader.getInt("nombre"));
 
-            JSONArray Users = reader.getJSONArray("users");
+            JSONArray Users = reader.getJSONArray("professeurs");
             ArrayList<Professeur> users = new ArrayList<Professeur>();
             for (int i = 0; i < NombreProfesseurs; i++) {
                 JSONObject Jsonuser = Users.getJSONObject(i);
@@ -70,7 +70,7 @@ import sqlapp.akrimkermi.com.Metier.User;
             // Starts the query
             // conn.connect();
             // InputStream stream = conn.getInputStream();
-            InputStream stream = con.getAssets().open("Etudiants.json");
+            InputStream stream = con.getAssets().open("Professeurs.json");
             String data = convertStreamToString(stream);
             ArrayList<Professeur> AllProfesseurs = Parsing(data);
             stream.close();
@@ -85,6 +85,15 @@ import sqlapp.akrimkermi.com.Metier.User;
     static String convertStreamToString(java.io.InputStream is) {
         java.util.Scanner s = new java.util.Scanner(is).useDelimiter("\\A");
         return s.hasNext() ? s.next() : "";
+    }
+
+    public Professeur getProfesseurById(Integer id){
+        ArrayList<Professeur> prof =this.getAllProfesseurs();
+        for(int i=0;i<prof.size();i++){
+            if(prof.get(i).getId_professeur()==id)
+                return prof.get(i);
+        }
+        return null;
     }
 
 }
