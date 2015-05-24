@@ -23,14 +23,17 @@ public class DPFEtudiant {
 
 
     public DPFEtudiant() {
+        dpfu = new DPFUser();
     }
 
     public DPFEtudiant(String link) {
         this.link = link;
+        dpfu = new DPFUser();
     }
 
     public DPFEtudiant(Context con) {
         this.con = con;
+        dpfu = new DPFUser();
     }
 
     public ArrayList<Etudiant> Parsing(String in) {

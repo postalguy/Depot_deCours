@@ -47,7 +47,7 @@ public class DPFUser {
             for (int i = 0; i < NombreUsers; i++) {
             JSONObject Jsonuser = Users.getJSONObject(i);
             Integer user_id =Integer.valueOf(Jsonuser.getInt("user_id")) ;
-            String username = Jsonuser.getString("nom")+Jsonuser.getString("prenom");
+            String username = Jsonuser.getString("nom")+" "+Jsonuser.getString("prenom");
             String email = Jsonuser.getString("email");
             String password = Jsonuser.getString("password");
             User usr = new User(user_id,username,email,password);
@@ -75,7 +75,7 @@ public class DPFUser {
                     // Starts the query
                    // conn.connect();
                    // InputStream stream = conn.getInputStream();
-                     InputStream stream = con.getAssets().open("src/androidTest/Users.json");
+                     InputStream stream = con.getAssets().open("Users.json");
                     String data = convertStreamToString(stream);
                     ArrayList<User> AllUsers = Parsing(data);
                     stream.close();

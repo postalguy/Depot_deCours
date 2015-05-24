@@ -25,13 +25,14 @@ public class DPFProfesseur {
     public volatile boolean parsingComplete = true;
 
     public  DPFProfesseur(){
+        dpfu = new DPFUser();
     }
     // Test local
     public DPFProfesseur(Context co) {
-        this.con = co;
+        this.con = co;dpfu = new DPFUser();
     }
     public DPFProfesseur(String link) {
-        this.link = link;
+        this.link = link;dpfu = new DPFUser();
     }
 
 

@@ -2,6 +2,6 @@
 "groupes" :[
 {"groupe_id":1,"intitule":"Génie Informatique"},
 {"groupe_id":2,"intitule":"Génie Reseau Telecom"},
-{"groupe_id":3,"intitule":"Génie Electrique"},
+{"groupe_id":3,"intitule":"Génie Electrique"}
 ]
 }
